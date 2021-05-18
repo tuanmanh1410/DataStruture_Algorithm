@@ -64,6 +64,8 @@ class SLinkedList():
         NewNode.next = node.next   # Keep the connection among nodes inside list
         node.next = NewNode        # Insert new node after specific node
         
+#Start test with list A and Initiate Liked_List
+
 A = [1,2,3,4,5,6]
 
 #Declare the list and initialize linked list from list 
