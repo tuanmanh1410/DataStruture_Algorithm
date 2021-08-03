@@ -12,19 +12,21 @@ class SLinkedList():
     def __init__(self):
         self.headval = None        # Type of headval will be 'Node' after initializing LinkedList|From non-type to Node
         
-    def Generate(self, a):         # Generate the linked list from integer or string list automately
+    # Generate the linked list from integer or string list automately
+    def Generate(self, a):         
         if (len(a)==0):
             print("Empty list, Please check again")
         else:
             self.headval = Node(a[0])  # Assign the head node with value of the first element of list
-            if (len(a)>=2):
-                T = Node(a[1])
+            if (len(a) >= 2):
+                T = Node(a[1])         # Create the next node and assign to temp node T
                 self.headval.next = T  # Keep the head node by using the temp variables connect node to linked list
-            if (len(a)>=3):
+            if (len(a) >= 3):
                 for i in range(2, len(a), 1):
                     T.next = Node(a[i])    # Assign the next node with T.next attribute and keep connection
                     T = T.next
 
+    # Display the value of Node
     def Display(self):
         show = self.headval
         while show is not None: # Show the value of list from head until None
@@ -38,6 +40,7 @@ class SLinkedList():
         #Make Newnode becoming the head node 
         NewNode.next = self.headval # The old head node become 2nd node and keep the connection between node
         self.headval = NewNode      # Assign new node to head node
+
         
     '''Insert new node at the end of LinkedList'''
     def InsertionEnd(self, newdata):
@@ -46,7 +49,7 @@ class SLinkedList():
             self.headval = NewNode
             return                 # With empty list, 'last' will not become Node lead to no attibute 'next'
         last = self.headval        # Assign node for last variable and go to the end of list
-        while (last.next):         # Find the last position to inserting new node
+        while (last.next):         # Find the last position node until last.next == None
             last = last.next
 
         last.next = NewNode
@@ -54,7 +57,7 @@ class SLinkedList():
     '''Insert new node between two nodes after specific node defined before'''
     def InsertBetween(self, node, newdata):
         NewNode = Node(newdata)
-        if (self.headval is None):
+        if (self.headval is None): #Check empty node or NOT
             self.headval = NewNode
             return
         if (node is None):
@@ -63,6 +66,28 @@ class SLinkedList():
         
         NewNode.next = node.next   # Keep the connection among nodes inside list
         node.next = NewNode        # Insert new node after specific node
+
+    def RemoveElement(self, keydata):
+        if (self.headval is None):
+            print('Empty List')
+            return
+        
+        Temp = self.headval
+
+        if (Temp.value == keydata):
+            self.headval = Temp.next        # Remove head node while Temp is head node
+            Temp = None                     # Delete node temp
+            return
+
+        while (Temp is not None):
+            if (Temp.value == keydata):     # Find down the node having value need to remove
+                break
+            prev = Temp                     # Store previous node, current node becomce previous node
+            Temp = Temp.next                # Traverse to next node
+
+        prev.next = Temp.next               # Link connection previous node to next node; ignore the current node
+        Temp = None                         # Delete current node
+
         
 #Start test with list A and Initiate Liked_List
 
@@ -73,5 +98,6 @@ MyList = SLinkedList()
 
 MyList.Generate(A)
 MyList.Display()
-
+MyList.RemoveElement(6)
+MyList.Display()
 
