@@ -1,5 +1,6 @@
 # Class for Singly Linked List with import data from Python list
 # Refer and modify from https://www.tutorialspoint.com/
+# With liked list, the head node in almost all case can be considerred as special case
 
 # Create node for list including data and next node to link
 class Node():
