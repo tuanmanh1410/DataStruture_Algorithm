@@ -36,7 +36,7 @@ class Myarray:
 a_list = [1,2,3,4]
 b=[2,4,5]
 
-my_class = Myarray(a_list)
+my_class = Myarray()
 result = my_class.FindMinElement()
 print(result)
 
