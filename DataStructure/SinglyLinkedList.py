@@ -23,14 +23,14 @@ class SLinkedList():
                 T = Node(a[1])         # Create the next node and assign to temp node T
                 self.headval.next = T  # Keep the head node by using the temp variables connect node to linked list
             if (len(a) >= 3):
-                for i in range(2, len(a), 1):
+                for i in range(2, len(a), 1): # Index from 2 to len(a)-1
                     T.next = Node(a[i])    # Assign the next node with T.next attribute and keep connection
                     T = T.next
 
     # Display the value of Node
     def Display(self):
         show = self.headval
-        while show is not None: # Show the value of list from head until None
+        while(show): # Show the value of list from head until None
             print(show.value)
             show = show.next
 
@@ -89,6 +89,13 @@ class SLinkedList():
         prev.next = Temp.next               # Link connection previous node to next node; ignore the current node
         Temp = None                         # Delete current node
 
+    def Get_Lenght(self):
+        temp = self.headval
+        count = 1
+        while (temp.next):
+            temp = temp.next
+            count += 1
+        return count
         
 #Start test with list A and Initiate Liked_List
 
