@@ -15,17 +15,17 @@ class SLinkedList():
         
     # Generate the linked list from integer or string list automately
     def Generate(self, a):         
-        if (len(a)==0):
-            print("Empty list, Please check again")
-        else:
-            self.headval = Node(a[0])  # Assign the head node with value of the first element of list
-            if (len(a) >= 2):
-                T = Node(a[1])         # Create the next node and assign to temp node T
-                self.headval.next = T  # Keep the head node by using the temp variables connect node to linked list
-            if (len(a) >= 3):
-                for i in range(2, len(a), 1): # Index from 2 to len(a)-1
-                    T.next = Node(a[i])    # Assign the next node with T.next attribute and keep connection
-                    T = T.next
+        prev = None
+        curr = None
+        
+        for i in a:
+            curr = Node(a)
+
+            if self.head is None:
+                self.head = curr    # Create node head for list
+            if prev is not None:
+                prev.next = curr    # Make connection between two node inside list
+            prev = curr
 
     # Display the value of Node
     def Display(self):
