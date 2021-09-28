@@ -1,7 +1,12 @@
 
 # Check a Linked_list is palidrome or not
-# Idea: devide a list to 2 half pass from middle point and compare them
-# Implement simply Singly_Liked_List
+# Idea: devide a list to 2 half pass from middle point; reverse one of them and compare them
+# Implement simply Singly_Liked_List class
+
+###########################################################################################
+def PalidromeList(self, head) # head is argument for head node of linked-list
+###########################################################################################
+
 
 class Linked_List(object):
 	"""docstring for Liked_List"""
