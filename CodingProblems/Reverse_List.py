@@ -22,17 +22,11 @@ for i in a:
 		prev1.next = curr
 	prev1 = curr
 
-# Get lenght of singly linked list
-lenght = 0
-temp = head
-while(temp):
-	temp = temp.next
-	lenght += 1
-
 # Start reverse linked list using prev, head, next
 headnext = head.next
 prev = None
-for i in range(lenght):
+
+while(head):
 	headnext = head.next
 	head.next = prev
 	prev = head
@@ -44,7 +38,7 @@ while (show):
 	print(show.val)
 	show = show.next
 
-# Show off [7,6,5,4,3,2,1]
+# Show off [7,6,5,4,3,2,1] ---> This is output
 
 
 

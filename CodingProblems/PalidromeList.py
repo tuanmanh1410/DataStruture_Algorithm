@@ -4,9 +4,8 @@
 # Implement simply Singly_Liked_List class
 
 ###########################################################################################
-def PalidromeList(self, head) # head is argument for head node of linked-list
+# def PalidromeList(self, head) # head is argument for head node of linked-list
 ###########################################################################################
-
 
 class Linked_List(object):
 	"""docstring for Liked_List"""
