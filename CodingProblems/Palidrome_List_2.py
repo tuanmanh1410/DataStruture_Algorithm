@@ -5,7 +5,8 @@
 # Author : Tuan Manh Tao                                  #
 ###########################################################
 
-# class Node stand for the list elements
+# Class Node stand for the list elements
+# Base Class
 class Node():
 	def __init__(self, value):
 		self.value = value
@@ -37,7 +38,7 @@ class Linked_List():
 		temp = self.head
 		lenght = 0
 		middle = right = left = 0
-
+		# STEP 1: Dẹtermine the left right position
 		while(temp):
 			lenght +=1
 			temp = temp.next
@@ -51,13 +52,37 @@ class Linked_List():
 
 		print("Left {}, Right {}".format(left, right))
 
+		# STEP 2: Assign left and right pointer
+		p_left = p_right = self.head
+		for i in range(right):
+			if (left > 0) and (i < left):
+				p_left = p_left.next
+			p_right = p_right.next
+
+		# STEP 3: Reverse the half left of list
+		head_node = self.head
+		next_node = head_node
+		prev_node = None
+		for i in range(left+1):
+			next_node = head_node.next
+			head_node.next = prev_node
+			prev_node = head_node
+			head_node = next_node
+
+		# STEP 4: Compare the value of each element inside two half sub_list
+		while (p_right):
+			if(p_left.value != p_right.value):
+				return False
+			p_right = p_right.next
+			p_left = p_left.next
 
 		return True
 
-A = [1,2,4,5,4,3,1]
+A = [1,2,4,5,4,2,1]
 s = Linked_List()
 s.Generate(A)
 s.Display()
-res = s.Check_Palidrome()
+
+print(s.Check_Palidrome())
 
 

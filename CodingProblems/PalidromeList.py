@@ -64,6 +64,8 @@ for i in range(second +1):
 	prev_node = head
 	head = HeadNext
 
+	
+
 # Step 4, compare two half sub-list
 while pf and pb:
 	if (pb.val != pf.val):
@@ -73,5 +75,7 @@ while pf and pb:
 	pf = pf.next
 
 print("True")
+
+
 
 
