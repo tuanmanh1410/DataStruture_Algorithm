@@ -52,19 +52,16 @@ class SLinkedList():
             last = last.next
 
         last.next = NewNode
-        
-    '''Insert new node between two nodes after specific node defined before'''
-    def InsertBetween(self, node, newdata):
-        NewNode = Node(newdata)
-        if (self.head is None): #Check empty node or NOT
-            self.head = NewNode
-            return
-        if (node is None):
-            print('Can not insert after this metioned node')
-            return
-        
-        NewNode.next = node.next   # Keep the connection among nodes inside list
-        node.next = NewNode        # Insert new node after specific node
+    
+    def Insert_Between(self, number, data):
+        New = Node(data)
+        temp = self.head
+        for i in range(number):
+            temp = temp.next
+
+        # Starting Insert
+        New.next = temp.next        # Keep the connection between nodes inside list
+        temp.next = New             # Insert the new node after assigned node
 
     def RemoveElement(self, keydata):
         if (self.head is None):
@@ -74,7 +71,7 @@ class SLinkedList():
         Temp = self.head
 
         if (Temp.value == keydata):
-            self.head = Temp.next        # Remove head node while Temp is head node
+            self.head = Temp.next           # Remove head node while Temp is head node by assign the new head list
             Temp = None                     # Delete node temp
             return
 
@@ -84,28 +81,21 @@ class SLinkedList():
             prev = Temp                     # Store previous node, current node becomce previous node
             Temp = Temp.next                # Traverse to next node
 
-        prev.next = Temp.next               # Link connection previous node to next node; ignore the current node
+        prev.next = Temp.next               # Link connection previous_node to next_node; ignore the current node
         Temp = None                         # Delete current node
 
-    def Get_Lenght(self):
-        temp = self.head
-        count = 0
-        while (temp):
-            temp = temp.next
-            count += 1
-        return count
-
-    def Rervese(self, lenght):
+    def Rervese(self):
         head_node = self.head
         back = None
         next_node = head_node
-        for i in range (lenght):
+        
+        while (head_node):
             next_node = head_node.next
             head_node.next = back
             back = head_node
             head_node = next_node
         # Checking the first element
-        print(back.value)
+        self.head = back    # Change the self.head
 
 
         
@@ -118,10 +108,8 @@ MyList = SLinkedList()
 
 MyList.Generate(A)
 MyList.Display()
-MyList.RemoveElement(5)
-print("------------------------")
-MyList.Display()
 
-lenght = MyList.Get_Lenght()
-MyList.Rervese(lenght)
+print('-----------------')
+MyList.Rervese()
+MyList.Display()
 
