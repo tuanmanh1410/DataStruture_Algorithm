@@ -71,11 +71,11 @@ class SLinkedList():
         Temp = self.head
 
         if (Temp.value == keydata):
-            self.head = Temp.next           # Remove head node while Temp is head node by assign the new head list
+            self.head = Temp.next           # Remove head node while Temp is head node by assign the new head list as head.next
             Temp = None                     # Delete node temp
             return
 
-        while (Temp is not None):
+        while (Temp):
             if (Temp.value == keydata):     # Find down the node having value need to remove
                 break
             prev = Temp                     # Store previous node, current node becomce previous node
@@ -94,6 +94,7 @@ class SLinkedList():
             head_node.next = back
             back = head_node
             head_node = next_node
+
         # Checking the first element
         self.head = back    # Change the self.head
 
