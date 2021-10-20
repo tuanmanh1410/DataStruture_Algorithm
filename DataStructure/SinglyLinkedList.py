@@ -43,12 +43,13 @@ class SLinkedList():
         
     '''Insert new node at the end of LinkedList'''
     def InsertionEnd(self, newdata):
-        NewNode = Node(newdata)    # Create new node with the new data
-        if (self.head is None): # For case empty list, 'if' condition prevents the no attribute error 
+        NewNode = Node(newdata)     # Create new node with the new data
+        if (self.head is None):     # For case empty list, 'if' condition prevents the no attribute error 
             self.head = NewNode
-            return                 # With empty list, 'last' will not become Node lead to no attibute 'next'
-        last = self.head        # Assign node for last variable and go to the end of list
-        while (last.next):         # Find the last position node until last.next == None
+            return  
+                                    # With empty list, 'last' will not become Node lead to no attibute 'next'
+        last = self.head            # Assign node for last variable and go to the end of list
+        while (last.next):          # Find the last position node until last.next == None
             last = last.next
 
         last.next = NewNode
@@ -64,25 +65,29 @@ class SLinkedList():
         temp.next = New             # Insert the new node after assigned node
 
     def RemoveElement(self, keydata):
+        print("Removing the " + str(keydata) + "-elements inside liked list")
         if (self.head is None):
             print('Empty List')
             return
         
-        Temp = self.head
+        # In case head is equal to keydata
+        while  (self.head.value == keydata):
+            self.head = self.head.next
+            if (self.head is None):
+                return
 
-        if (Temp.value == keydata):
-            self.head = Temp.next           # Remove head node while Temp is head node by assign the new head list as head.next
-            Temp = None                     # Delete node temp
-            return
+        Temp = self.head
+        prev = self.head
 
         while (Temp):
             if (Temp.value == keydata):     # Find down the node having value need to remove
-                break
+                prev.next = Temp.next       
+                Temp = Temp.next
+                continue
+
             prev = Temp                     # Store previous node, current node becomce previous node
             Temp = Temp.next                # Traverse to next node
 
-        prev.next = Temp.next               # Link connection previous_node to next_node; ignore the current node
-        Temp = None                         # Delete current node
 
     def Rervese(self):
         head_node = self.head
@@ -102,7 +107,7 @@ class SLinkedList():
         
 #Start test with list A and Initiate Liked_List
 
-A = [1,2,3,4,5,6]
+A = [1,2,2,4,5,6,2]
 
 #Declare the list and initialize linked list from list 
 MyList = SLinkedList()
@@ -112,5 +117,8 @@ MyList.Display()
 
 print('-----------------')
 MyList.Rervese()
+MyList.Display()
+
+MyList.RemoveElement(2)
 MyList.Display()
 
