@@ -81,7 +81,7 @@ class SLinkedList():
 
         while (Temp):
             if (Temp.value == keydata):     # Find down the node having value need to remove
-                prev.next = Temp.next       
+                prev.next = Temp.next       # Remove the current node, connect previous to next node     
                 Temp = Temp.next
                 continue
 
@@ -101,7 +101,7 @@ class SLinkedList():
             head_node = next_node
 
         # Checking the first element
-        self.head = back    # Change the self.head
+        self.head = back                # Change the self.head for the new reversed linked_list
 
 
         
