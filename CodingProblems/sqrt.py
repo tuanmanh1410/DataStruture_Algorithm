@@ -1,4 +1,5 @@
 # Find Sqrt() without math function 
+# Reduce the range between upper and lower with defined limit for test
 
 class My_Number():
 	def __init__(self, number):
@@ -19,5 +20,5 @@ class My_Number():
 				lower = res
 		return res
 
-a = My_Number(5)
+a = My_Number(4)
 print(a.Sqrt())
