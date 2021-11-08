@@ -54,11 +54,11 @@ class SLinkedList():
 
         last.next = NewNode
     
-    def Insert_Between(self, number, data):
+    def Insert_Between(self, index, data):
         New = Node(data)
         temp = self.head
-        for i in range(number):
-            temp = temp.next
+        for i in range(index):
+            temp = temp.next	    # temp variable point the "index" position
 
         # Starting Insert
         New.next = temp.next        # Keep the connection between nodes inside list
