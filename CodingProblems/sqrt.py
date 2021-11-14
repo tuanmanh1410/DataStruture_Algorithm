@@ -12,7 +12,7 @@ class My_Number():
 		res = 1
 
 		while (abs(res*res - self.num) > limit):
-			res = (upper + lower)/2
+			res = (upper + lower)/2   # Initiate res for computing
 			# Reduce the gap of upper and lower bound; get the average to get the sqrt(x)
 			if (res*res >= self.num):
 				upper = res
@@ -20,5 +20,5 @@ class My_Number():
 				lower = res
 		return res
 
-a = My_Number(4)
+a = My_Number(10)
 print(a.Sqrt())
