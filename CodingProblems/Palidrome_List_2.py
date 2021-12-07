@@ -59,7 +59,7 @@ class Linked_List():
 				p_left = p_left.next
 			p_right = p_right.next
 
-		# STEP 3: Reverse the half left of list
+		# STEP 3: Reverse the half left of list to compare with second half right of list
 		head_node = self.head
 		next_node = head_node
 		prev_node = None
