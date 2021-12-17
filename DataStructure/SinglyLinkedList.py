@@ -82,8 +82,8 @@ class SLinkedList():
         while (Temp):
             if (Temp.value == keydata):     # Find down the node having value need to remove
                 prev.next = Temp.next       # Remove the current node, connect previous to next node     
-                Temp = Temp.next
-                continue
+                Temp = Temp.next            # Ignore current temp(equal value) position and move forward 1 node
+                continue                    # Go to starting point while loop
 
             prev = Temp                     # Store previous node, current node becomce previous node
             Temp = Temp.next                # Traverse to next node
@@ -115,7 +115,7 @@ MyList = SLinkedList()
 MyList.Generate(A)
 MyList.Display()
 
-print('-----------------')
+print('New list after reverse:')
 MyList.Rervese()
 MyList.Display()
 
