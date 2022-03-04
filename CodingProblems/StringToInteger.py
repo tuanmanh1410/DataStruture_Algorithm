@@ -24,8 +24,8 @@ class StringToInteger():
 		self.s = s_string
 
 	def Convert(self):
-		print(self.s)
 		print('---------------------')
+		print(self.s)
 		MIN = -2**31
 		MAX = 2**31 -1
 		self.start = False  		# Flag for start iteger number
@@ -36,12 +36,12 @@ class StringToInteger():
 			if (self.s[i].isdigit()):
 				self.start = True
 				res = res * 10 + int(self.s[i])
-			elif (self.s[i] == ' ') and (self.start == False):		#Ignore space before number
+			elif (self.s[i] == ' ') and (self.start == False):		# Ignore space before number
 				continue
-			elif (self.s[i] == '+') and (self.start == False):		#Number place behind + , change flag status
+			elif (self.s[i] == '+') and (self.start == False):		# Number place behind + , change flag status
 				self.start = True
 				self.sign = 1
-			elif (self.s[i] == '-') and (self.start == False):		#Number should be place behind - , change flag status
+			elif (self.s[i] == '-') and (self.start == False):		# Number should be place behind - , change flag status
 				self.start = True
 				self.sign = -1
 			else: 
@@ -57,8 +57,11 @@ class StringToInteger():
 
 s = StringToInteger('Test with number 42')  #Result should be return 0 due to having some word at the begining
 a = s.Convert()
+print('Result:', a)
 
-print('Result:',a)
+s1 = StringToInteger('-43 is digit')
+a1 = s1.Convert()
+print('Result:', a1)
 
 
 

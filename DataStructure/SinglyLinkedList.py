@@ -54,7 +54,7 @@ class SLinkedList():
 
         last.next = NewNode
     
-    def Insert_Between(self, index, data):
+    def Insert_Between(self, index, data): #Insert new node on the right of current node
         New = Node(data)
         temp = self.head
         for i in range(index):
