@@ -28,7 +28,7 @@ class StringToInteger():
 		print(self.s)
 		MIN = -2**31
 		MAX = 2**31 -1
-		self.start = False  		# Flag for start iteger number
+		self.start = False  		# Flag for start integer number
 		self.sign = 1
 		res = 0
 
@@ -55,11 +55,11 @@ class StringToInteger():
 		return res
 
 
-s = StringToInteger('Test with number 42')  #Result should be return 0 due to having some word at the begining
+s = StringToInteger('Test with number 42')  # Result should be return 0 due to having some word at the begining
 a = s.Convert()
 print('Result:', a)
 
-s1 = StringToInteger('-43 is digit')
+s1 = StringToInteger('-43 is negative digit')
 a1 = s1.Convert()
 print('Result:', a1)
 

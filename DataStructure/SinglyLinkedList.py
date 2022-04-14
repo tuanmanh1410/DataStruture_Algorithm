@@ -86,7 +86,7 @@ class SLinkedList():
                 continue                    # Go to starting point while loop
 
             prev = Temp                     # Store previous node, current node becomce previous node
-            Temp = Temp.next                # Traverse to next node
+            Temp = Temp.next                # Traverse to next node, temp has moving role
 
 
     def Rervese(self):
