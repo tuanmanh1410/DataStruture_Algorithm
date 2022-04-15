@@ -20,10 +20,10 @@ class SLinkedList():
         for i in a:
             curr = Node(i)
             if self.head is None:
-                self.head = curr
+                self.head = curr    # Assign the head node for list
             if prev is not None:
-                prev.next = curr
-            prev = curr
+                prev.next = curr    # Create connections about the node prev.next is curr node
+            prev = curr             # Store current node to previous to ready for next iteration
 
     # Display the value of Node
     def Display(self):
@@ -77,12 +77,12 @@ class SLinkedList():
                 return
 
         Temp = self.head
-        prev = self.head
+        prev = None
 
         while (Temp):
             if (Temp.value == keydata):     # Find down the node having value need to remove
                 prev.next = Temp.next       # Remove the current node, connect previous to next node     
-                Temp = Temp.next            # Ignore current temp(equal value) position and move forward 1 node
+                Temp = Temp.next            # Ignore current temp(equal value) position and move forward 1 node, officially remove curr node
                 continue                    # Go to starting point while loop
 
             prev = Temp                     # Store previous node, current node becomce previous node
