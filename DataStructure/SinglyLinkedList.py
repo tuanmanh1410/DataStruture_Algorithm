@@ -89,7 +89,7 @@ class SLinkedList():
             Temp = Temp.next                # Traverse to next node, temp has moving role
 
 
-    def Rervese(self):
+    def Reverse(self):
         head_node = self.head
         back = None
         next_node = head_node
@@ -104,10 +104,56 @@ class SLinkedList():
         self.head = back                # Change the self.head for the new reversed linked_list
 
 
+    def CheckPalindromic(self):         # List does not change when reverse() 
+        # First to get lenght of list
+        iLen = 0
+        temp = self.head
+        while(temp):
+            iLen += 1
+            temp = temp.next
+
+
+        # Determine the left and right position of list
+        iRight = 0
+        iLeft = 0
+        iLeft = iLen // 2 - 1
+        if ( iLen % 2 == 0):
+            iRight = iLen // 2
+        else:
+            iRight = iLen // 2 + 1
+
+        # Assign the left, right pointer
+        p_Left = self.head
+        p_right = self.head
+
+        for i in range (0,iRight):
+            if (i < iLeft):
+                p_Left = p_Left.next
+            p_right = p_right.next
+
+        # Reverse the first-half of Linked List
+        back = None
+        next_node = self.head
+        head_node = self.head
+        for i in range (0, iLeft +1):
+            next_node = head_node.next
+            head_node.next = back 
+            back = head_node
+            head_node = next_node
+
+        # Compare two-sub lists (half left reverse and half right)
+        while (p_right):
+            if (p_right.value != p_Left.value):
+                return False
+            p_right = p_right.next
+            p_Left = p_Left.next
+
+        return True
+
         
 #Start test with list A and Initiate Liked_List
 
-A = [1,2,2,4,5,6,2]
+A = [1,2,3,4,3,2,1]
 
 #Declare the list and initialize linked list from list 
 MyList = SLinkedList()
@@ -115,10 +161,7 @@ MyList = SLinkedList()
 MyList.Generate(A)
 MyList.Display()
 
-print('New list after reverse:')
-MyList.Rervese()
-MyList.Display()
+print(MyList.CheckPalindromic())
 
-MyList.RemoveElement(2)
-MyList.Display()
+
 
