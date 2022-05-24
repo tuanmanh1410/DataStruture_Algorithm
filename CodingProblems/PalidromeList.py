@@ -1,6 +1,7 @@
 
 # Check a Linked_list is palidrome or not
 # Idea: devide a list to 2 half pass from middle point; reverse one of them and compare them
+# Another approach : reverse whole list to the new list and compare together 
 # Implement simply Singly_Liked_List class
 
 ###########################################################################################
