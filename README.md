@@ -7,7 +7,7 @@ Besides, some related problems based on Daily Coding Problem will be implemented
 Source tree will be update in Readme for easily search.
 
 - Stack
-- Liked List
+- Liked List (Single, Double, Circular) - ** Currently, Single and Circular Linked List were added**
 - Queue
 - Binary Tree
 

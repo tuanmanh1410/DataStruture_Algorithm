@@ -36,7 +36,7 @@ class SLinkedList():
     def InsertionBegin(self, newdata):
         NewNode = Node(newdata)     # Create new node with the new data
         
-        #Make Newnode becoming the head node 
+        # Make newnode becoming the head node - first connect the new node to the head node
         NewNode.next = self.head # The old head node become 2nd node and keep the connection between node
         self.head = NewNode      # Assign new node to head node
 
